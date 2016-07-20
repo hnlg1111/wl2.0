@@ -1,0 +1,1395 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <title>首页-为了商城</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+        ! function(a) {
+            function b() {
+                a.rem = f.getBoundingClientRect().width / 16, f.style.fontSize = a.rem + "px"
+            }
+            var c, d = a.navigator.appVersion.match(/iphone/gi) ? a.devicePixelRatio : 1,
+                    e = 1 / d,
+                    f = document.documentElement,
+                    g = document.createElement("meta");
+            if (a.dpr = d, a.addEventListener("resize", function() {
+                        clearTimeout(c), c = setTimeout(b, 300)
+                    }, !1), a.addEventListener("pageshow", function(a) {
+                        a.persisted && (clearTimeout(c), c = setTimeout(b, 300))
+                    }, !1), f.setAttribute("data-dpr", d), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + e + ", maximum-scale=" + e + ", minimum-scale=" + e + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g);
+            else {
+                var h = document.createElement("div");
+                h.appendChild(g), document.write(h.innerHTML)
+            }
+            b()
+        }(window);
+    </script>
+    <style>
+        /*轮播样式开始*/
+        .slider-wrap {
+            width: 100%;
+            height: 6.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .slider-list {
+            display: -webkit-box;
+            width: 100%;
+            height: 100%;
+        }
+        .slider-item {
+            width: 100%;
+            list-style: none;
+        }
+        .slider-item a {
+            display: block;
+        }
+        .transitionable {
+            -webkit-transition: all 0.3s ease-in-out;
+        }
+        .slider-page {
+            width: 100%;
+            position: absolute;
+            bottom:-0.4rem;
+            left: 0;
+            text-align: center;
+        }
+        .slider-page ul {
+            display: inline-block;
+            text-align: center;
+        }
+        .slider-page ul li {
+            display: inline-block;
+            vertical-align: top;
+            width:0.3rem;
+            height:0.3rem;
+            margin: 0 0.125rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .5)
+        }
+
+        .slider-page ul li.active {
+            background: #ec4519;
+        }
+        .img-wrap {
+            width: 100%;
+            height: 100%;
+        }
+        /*小屏滚动banner*/
+        #leaderboard{
+            height:4.35rem;
+        }
+        /*轮播样式结束*/
+
+        /*导航样式开始*/
+        .navBox{
+            text-align: center;
+            width: 100%;
+            background-color: #dddddd;
+        }
+        .nav ul{
+            padding-top: 0.6rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .nav ul li{
+            float: left;
+            width:25%;
+            box-sizing:border-box;
+            text-align: center;
+        }
+        .nav ul li p{
+            font-size: 0.55rem;
+            margin-top: 0.35rem;
+            margin-bottom: 0.4rem;
+        }
+        .nav ul li div{
+            margin:0 auto;
+            width: 1.95rem;
+            height: 1.95rem;
+            background-color: #fcfcfc;
+        }
+        .nav ul li a{
+            color: #838082;
+        }
+
+        /*导航样式结束*/
+        /*公告样式开始*/
+        .notice{
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .notice ul{
+            height: 3.1rem;
+            overflow: hidden;
+        }
+        .notice ul li{
+            float: left;
+            box-sizing:border-box;
+            line-height: 3.1rem;
+        }
+        .notice ul li:first-child{
+            width: 1.8rem;
+            height: auto;
+            margin-left: 0.5rem;
+            margin-right: 0.4rem;
+        }
+        .advent{
+            width:1rem;
+            margin-right: 0.4rem;
+        }
+        .notice ul li img{
+            display:inline-block;
+            vertical-align: middle;
+        }
+        #topScroll{
+            float: left;
+            margin-right: 1rem;
+            line-height: .8rem;
+            height:2rem;
+            width:10rem;
+            overflow: hidden;
+            margin-top:0.6rem;
+        }
+        .notice ul li:last-child p{
+            width:100%;
+            height:2rem;
+            line-height: 1rem;
+            font-size:0.6rem;
+            color: #323232;
+        }
+        /*公告样式结束*/
+        .secendBanner{
+            height:5.3rem;
+            width: 100%;
+            margin-top: 0.2rem;
+            overflow: hidden;
+            border-bottom: 1px solid #e5e5e5;
+
+        }
+        /*买手推介开始*/
+        .common{
+            padding-bottom: 0.6rem;
+            padding-top: 0.6rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .common .recommend{
+            float: left;
+            height: 2.75rem;
+            width:43%;
+            padding-left: 1rem;
+            border-right: 1px solid #e5e5e5;
+        }
+
+        .common .recommend img{
+            width: 1.05rem;
+            float: left;
+        }
+        .common .recommend div{
+            float: left;
+            line-height: 1.1rem;
+            font-size:0.6rem;
+            color: #838082;
+            display: block;
+        }
+        .common .recommend i{
+            font-weight: 600;
+            margin-left: 0.25rem;
+            font-style: normal;
+            float: left;
+            font-size:0.7rem;
+            color: #646464;
+        }
+        .common .recommend p{
+            font-size: 0.65rem;
+            float: left;
+            color: #838082;
+            margin-top: 0.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+        }
+        /*买手推介结束*/
+        /*限时抢购开始*/
+        .panicBuying{
+            margin-bottom: 0.1rem;
+            width: 100%;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .panicBuying .panicBuyingLeft{
+            float: left;
+            width:36%;
+            border-right: 1px solid #e5e5e5;
+        }
+        .panicBuying .panicBuyingLeft div:first-child{
+            padding-top:0.7rem;
+            margin-bottom: 0.45rem;
+        }
+        .panicBuying .panicBuyingLeft div:first-child img{
+            margin-left: 0.6rem;
+            float: left;
+            display: inline-block;
+            width: 0.8rem;
+        }
+        .panicBuying .panicBuyingLeft div:first-child i{
+            color: #d64915;
+            font-weight: 700;
+            margin-left: 0.4rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            float:left ;
+            font-size: 0.65rem;
+            display: inline-block;
+        }
+        .panicBuying .panicBuyingLeft p{
+            text-align: center;
+            font-size: 0.5rem;
+            color: #929292;
+        }
+        .panicBuying .panicBuyingCountDown{
+            margin-left: 1.05rem;
+            margin-top: 0.15rem;
+            font-size: 0.7rem;
+        }
+        .panicBuying .panicBuyingCountDown span{
+            text-align: center;
+            height: 1.1rem;
+            line-height: 1.1rem;
+            display: inline-block;
+            width: 1.05rem;
+            border-radius:0.2rem;
+            color: #ffffff;
+            background-color:#333333;
+            font-size: 0.75rem;
+
+        }
+        .panicBuying .panicBuyingLeft .panicBuyingProductImg{
+            width: 4.35rem;
+            height: 4.35rem;
+            background-color:#fcfcfc;
+            margin: 0.4rem auto 0.25rem auto;
+        }
+        .panicBuying .panicBuyingRight{
+            float:left;
+            width:63%;
+            height: 3rem;
+        }
+        .panicBuying .panicBuyingRight .panicBuyingTop{
+            width: 100%;
+            margin-top: 0.6rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .panicBuyingTopLeft img{
+            width: 0.6rem;
+            float: left;
+        }
+        .panicBuyingTopLeft{
+            width: 3.5rem;
+            float: left;
+            margin-left: 0.6rem;
+        }
+        .panicBuyingTopLeft i{
+            font-style: normal;
+            font-size: 0.75rem;
+            color:#7d0c35;
+            margin-left: 0.5rem;
+            line-height: 1rem;
+            height: 1rem;
+        }
+        .panicBuyingTopLeft>p{
+            font-size: 0.55rem;
+            color:#999999;
+        }
+        .panicBuyingTopLeft>p:last-child{
+            font-size: 0.75rem;
+            color: #973257;
+        }
+        .panicBuyingTopRight{
+            float:left;
+            width: 5.35rem;
+            height: 3.4rem;
+            background:#fcfcfc;
+            margin-bottom: 0.5rem;
+        }
+        .panicBuyingBottom {
+            margin-left: 0.35rem;
+        }
+        .panicBuyingBottom p{
+            font-weight: 600;
+            padding-top: 0.1rem;
+            font-size: 0.6rem;
+            color: #646464;
+        }
+        .panicBuyingBottom div{
+            width: 9.25rem;
+            height:3.2rem;
+            background-color: #fefefe;
+        }
+
+        /*限时抢购结束*/
+
+        /*通栏滚动banner开始*/
+        .leaderboard{
+            width: 100%;
+            height: 4.3rem;
+            background-color:#fcfcfc;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        /*通栏滚动banner结束*/
+
+        /*为了品牌城开始*/
+        .commonTitle{
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .commonTitle img{
+            width:0.75rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .commonTitle i{
+            height: 1.5rem;
+            line-height: 1.5rem;
+            font-style: normal;
+            color: #e84618;
+            font-size: 0.7rem;
+            margin-left: 0.25rem;
+            vertical-align: middle;
+        }
+        .brandContainer{
+            overflow:hidden;
+            width:16rem;
+        }
+        .brandList{
+            width:24.2rem;
+            margin-left:-4rem;
+        }
+        .brandList>li{
+            width:3.975rem;
+            background-color:#fff;
+            float: left;
+            border-bottom:0.025rem  solid  #e5e5e5;
+            border-right:0.025rem solid  #e5e5e5;
+        }
+        .brandImg{
+            width:3.25rem;
+            height: 4rem;
+            background-color:#fdfdfd;
+            margin:0.15rem auto 0 auto;
+        }
+        .brandList p{
+            width: 100%;
+            margin-top: 0.1rem;
+            margin-bottom: 0.1rem;
+            font-size: 0.65rem;
+            color: #323232;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        /*为了品牌城结束*/
+        /*超值返开始*/
+        .returnValueContainer .returnValueProduct{
+            width:49%;
+            position: relative;
+            background-color:#fefefe;
+            height: 11rem;
+            border-right: 0.025rem solid #e5e5e5;
+            border-bottom: 0.025rem solid #e5e5e5;
+            float: left;
+        }
+        .returnValueContainer .returnValueProduct .promotion{
+            width: 3rem;
+            height: 2rem;
+            position: absolute;
+            left: 0.2rem;
+            top: 0;
+            background-color: #ff6050;
+        }
+        .promotion p:first-child{
+            color:#edef11;
+            font-size:.6rem;
+            text-align: center;
+            margin-top: 0.1rem;
+        }
+        .promotion p:last-child{
+            color: #fff;
+            font-size: 0.6rem;
+            text-align: center;
+        }
+        .promotion i{
+            margin-left: 0.1rem;
+        }
+        .returnValueProductImg{
+            position: absolute;
+            top: 2.45rem;
+            left: 0.2rem;
+            width: 7.45rem;
+            height: 4.5rem;
+            background-color: #fcfcfc;
+        }
+        .returnValueProductInfo{
+            width: 100%;
+            border-top: 1px solid #e5e5e5;
+            position: absolute;
+            top: 7.75rem;
+            left: 0;
+        }
+        .returnValueProductInfo p{
+            font-size: 0.55rem;
+            color: #333333;
+            text-align: left;
+            width: 96%;
+            margin: 0 auto;
+            margin-top: 0.2rem;
+        }
+        .value{
+            font-size: 0.6rem;
+            color: #ff6050;
+            margin-left: 0.2rem;
+            position: absolute;
+            bottom:-1rem ;
+        }
+        .returnValueProductInfo i span{
+            margin-left: 0.2rem;
+            font-weight: 600;
+        }
+        .returnValueProductInfo div{
+            display: inline-block;
+            width:2.5rem;
+            height: 1.3rem;
+            border-radius: 0.1rem;
+            background-color: #ff6050;
+            text-align: center;
+            line-height:1.3rem;
+            font-size: 0.8rem;
+            color: #fff;
+            position: absolute;
+            right: 0.5rem;
+        }
+        /*超值返结束*/
+        /*新品上市开始*/
+        .currencyTitle{
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .currencyTitle div{
+            vertical-align: middle;
+            display: inline-block;
+            height: 0.05rem;
+            width: 0.85rem;
+            margin-left: 0.3rem;
+            margin-right: 0.3rem;
+        }
+        .currencyTitle i{
+            line-height: 1.4rem;
+            font-weight: 600;
+            font-size:0.6rem;
+        }
+        .currencyTitle>p>i{
+            width:.5rem;
+            height:.5rem;
+            display:inline-block;
+            vertical-align: -.04rem;
+        }
+        .newArrivalProduct{
+            width:49%;
+            float: left;
+            border-right:1px solid #e5e5e5;
+            border-bottom:1px solid #e5e5e5;
+            border-left: 1px solid #e5e5e5;
+        }
+        .productImgLeft{
+            margin-left: 0.15rem;
+            width: 4.3rem;
+            height:4.8rem ;
+            float: left;
+            background-color: orange;
+            overflow: hidden;
+        }
+        .productImgRight{
+            float: left;
+            overflow: hidden;
+        }
+        .productImgRight span {
+            display: block;
+            width: 2.85rem;
+            height: 2.35rem;
+            margin-left: 0.1rem;
+            background-color: indigo;
+            margin-bottom: 0.05rem;
+        }
+        .productName{
+            font-size: 0.5rem;
+            font-weight: 600;
+            color: #333333;
+            line-height: 1rem;
+            text-align: center;
+        }
+        .productName p em{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+        }
+        .productName i{
+            color: #999999;
+            font-size: 0.45rem;
+        }
+        /*新品上市结束*/
+
+        .fashionImg{
+            height:5.85rem;
+            width: 100%;
+            overflow: hidden;
+            background-color: darkcyan;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .electricListCurrencyList{
+            font-size: 0.5rem;
+            width: 32.4%;
+            height: 6.35rem;
+            background-color: #fefefe;
+            margin-right:0.1rem;
+            float: left;
+        }
+        .electricListCurrencyList p{
+            margin:0 auto;
+            text-align: center;
+            width: 80%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .currencyTitle{
+            position: relative;
+        }
+        .currencyTitle>p{
+            position: absolute;
+            right: 0.8rem;
+            font-size:0.5rem;
+            color:#646464;
+            top: 0.4rem;
+        }
+        .themeGray{
+            color: #333333;
+        }
+        .themeBlue{
+            color: #40a2ff;
+        }
+
+        .themeGreen{
+            color: #6fb66a;
+        }
+        .themePurple{
+            color:#c637ff;
+        }
+        .themeOrange{
+            color: #f88600;
+        }
+        .themeBlueBg{
+            background-color: #40a2ff;
+        }
+        .themeGrayBg{
+            background-color: #333333;
+        }
+        .themeOrangeBg{
+            background-color: #f88600;
+        }
+        .themeGreenBg{
+            background-color:#6fb66a;
+        }
+        .themePurpleBg{
+            background-color:#c637ff ;
+        }
+
+        .electricListCurrencyList p:first-child{
+            font-weight:600;
+            padding-top: 0.2rem;
+        }
+        .electricListCurrencyList div{
+            width: 4rem;
+            height: 4rem;
+            background-color: yellow;
+            margin:0.4rem  auto 0 auto;
+            overflow: hidden;
+        }
+        .electricListCurrencyList p{
+            line-height:0.8rem;
+        }
+
+        /*每周上新 猜你喜欢star*/
+
+        .productCommon{
+            background-color: #fff;
+        }
+        .productCommon>div{
+            width: 49%;
+            height: 10.5rem;
+            float:left;
+            border: 1px solid #e5e5e5;
+        }
+        .productCommon>div div:first-child{
+            width:100%;
+            height: 7.95rem;
+            overflow: hidden;
+        }
+        .productCommon>div div:last-child{
+            padding-top: 0.4rem;
+        }
+        .productCommon>div div:last-child p:first-child{
+            margin: 0 auto;
+            width: 90%;
+            color: #333333;
+            font-size: 0.5rem;
+        }
+        .productCommon>div div:last-child p:last-child{
+            font-size:0.6rem;
+            color: #e84618;
+            margin-left: 0.5rem;
+            margin-top: 0.2rem;
+            width: 90%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+
+        }
+        .productCommon i{
+            margin-left: 0.2rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+        }
+        /*每周上新 猜你喜欢end*/
+        .more{
+            height:3rem;
+            font-size:0.8rem;
+            line-height: 2rem;
+            text-align: center;
+            background: #d9d9d9;
+        }
+
+        /*footer*/
+        #backtop{
+            width:2rem;
+            height:2rem;
+            border-radius:1rem;
+            position: fixed;
+            bottom: 3.5rem;
+            right: 1rem;
+            background-image:url(img/backTop.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        #backtop{
+            height: 2.175rem;
+        }
+        #service{
+            width:2rem;
+            height:2rem;
+            border-radius:1rem;
+            position: fixed;
+            bottom: 3.5rem;
+            left: 1rem;
+            background-image:url(img/backTop.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .footer ul{
+            background:#eeeeee;
+            border-top: #e5e5e5 1px solid;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            height: 2.45rem;
+            width: 100%;
+        }
+        .footer ul li{
+            display: inline-block;
+            box-sizing: border-box;
+            width:25%;
+            margin-top: 0.3rem;
+            float: left;
+        }
+        .footer ul li i{
+            display:block;
+            width: 0.95rem;
+            height: 0.95rem;
+            margin: 0 auto;
+            margin-bottom: 0.1rem;
+        }
+        .footer ul li span{
+            font-size: 0.65rem;
+            color: #323232;
+            display:block;
+            text-align:center ;
+        }
+
+        /*icon*/
+        .iconMore{
+            background-image: url(img/next.png);
+            display: inline-block;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width:1.75rem;
+            height: 1.75rem;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <form action="">
+        <div class="searchbox">
+            <section class="Ileft">
+                <img src="img/logo.png" alt=""/>
+            </section>
+            <section class="Iright">
+                <p>
+                    <img src="img/sousuo.png" alt=""/>
+                </p>
+                <input type="text" value="梵娜诗香水"/>
+            </section>
+        </div>
+    </form>
+</div>
+<div class="main">
+    <!--首屏滚动banner开始-->
+    <section class="slider-wrap" id="banner"></section>
+    <!--首屏滚动banner结束-->
+
+    <!--分类导航开始-->
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="">
+                    <div><img src="img/index_onlionshop.png" alt=""/></div>
+                    <p>线上商城</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div><img src="img/index_new.png" alt=""/></div>
+                    <p>新品专区</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div><img src="img/index_Pinpai.png" alt=""/></div>
+                    <p>品牌专区</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                   <div><img src="img/index_chat.png" alt=""/></div>
+                    <p>社交中心</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div><img src="img/index_Xianxia.png" alt=""/></div>
+                    <p>线下店铺</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div><img src="img/index_active.png" alt=""/></div>
+                    <p>活动特惠</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div><img src="img/index_onlionshop.png" alt=""/></div>
+                    <p>商家中心</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div><img src="img/index_more.png" alt=""/></div>
+                    <p>更多</p>
+                </a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <!--分类导航结束-->
+
+    <!--为了公告开始-->
+    <div class="notice">
+        <ul>
+            <li><img src="img/notice.png" alt=""/></li>
+            <li class="advent"><img src="img/advent.png" alt=""/>
+            <li id="topScroll">
+                <p>商城内测期间,发现问题商城内测期间,发现问题商城内测期间,发现问题</p>
+            </li>
+        </ul>
+    </div>
+    <!--为了公告结束-->
+
+    <!--静态banner开始-->
+    <div class="secendBanner">
+        <a href="###"><img src="img/index_jingtai.jpg" alt=""/></a>
+    </div>
+    <!--静态banner结束->
+
+    <!--猜你喜欢开始-->
+    <div class="common">
+        <a href="###">
+                <div class="recommend">
+                    <div>
+                        <img src="img/index_tuijie.png" alt=""/>
+                        <i>买手推介</i>
+                    </div>
+                    <p>母婴用品 300-168</p>
+                    <div class="clear"></div>
+                </div>
+        </a>
+        <a>
+            <div class="recommend">
+                <div>
+                    <img src="img/index_love.png" alt=""/>
+                    <i>猜你喜欢</i>
+                </div>
+                <p>母婴用品 300-168</p>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </a>
+    </div>
+    <!--猜你喜欢结束-->
+
+    <!--限时抢购开始-->
+    <div class="panicBuying">
+        <div class="panicBuyingLeft">
+            <div class="panicBuyingTitle">
+                <img src="img/index_countdown.png" alt=""/>
+                <i>限时抢购</i>
+                <div class="clear"></div>
+            </div>
+            <p>阿玛卤鸭鸭脖</p>
+            <div class="panicBuyingCountDown">
+                <span class="_h"></span>:
+                <span class="_m"></span>:
+                <span class="_s"></span>
+            </div>
+            <div class="panicBuyingProductImg">
+                <a href="###"><img src="img/index_countproduct.png" alt=""/></a>
+            </div>
+        </div>
+
+        <div class="panicBuyingRight">
+            <div class="panicBuyingTop">
+                <div class="panicBuyingTopLeft">
+                    <div>
+                        <img src="img/index_solid.png" alt=""/><i>好酒</i>
+                    </div>
+                    <p>热卖红酒</p>
+                    <p>限量抢购</p>
+                </div>
+                <div class="panicBuyingTopRight">
+                    <img src="img/index_jiuproduct.png" alt=""/>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="panicBuyingBottom">
+                <p>超实惠</p>
+                <div>
+                     <img src="img/index_shihui.png" alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--限时抢购结束-->
+
+    <!--小屏滚动banner开始-->
+    <section class="slider-wrap" id="leaderboard"></section>
+    <!--小屏滚动banner结束-->
+
+    <!--为了品牌城开始-->
+    <div class="brand">
+        <div class="commonTitle">
+            <img src="img/index_brandlogo.png" alt=""/>
+            <i> 为了品牌城</i>
+        </div>
+        <div class="brandContainer">
+            <ul class="brandList clear">
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="brandList clear">
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="brandImg"><img src="img/index_brandProduct.png" alt=""></div>
+                        <p>布瓦索诺</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!--为了品牌城结束-->
+
+    <!--超值返开始-->
+    <div class="returnValue">
+        <div class="commonTitle">
+            <img src="img/index_returnValue.png" alt="">
+            <i>超值返</i>
+        </div>
+
+        <div class="returnValueContainer">
+            <div class="returnValueProduct">
+                <div class="promotion">
+                    <p>促销值</p>
+                    <p>¥<i>98</i></p>
+                </div>
+                <div class="returnValueProductImg">
+                    <img src="img/index_valueproduct.png" alt="">
+                </div>
+                <div class="returnValueProductInfo">
+                    <p>【限时抢购】 土耳其薰衣草皂100%促销</p>
+                    <i class="value">商城价:¥<span>98</span></i>
+                    <div>抢购</div>
+                </div>
+            </div>
+            <div class="returnValueProduct">
+                <div class="promotion">
+                    <p>促销值</p>
+                    <p>¥<i>98</i></p>
+                </div>
+                <div class="returnValueProductImg">
+                    <img src="img/index_valueproduct.png" alt="">
+                </div>
+                <div class="returnValueProductInfo">
+                    <p>【限时抢购】 土耳其薰衣草皂100%促销</p>
+                    <i class="value">商城价:¥<span>98</span></i>
+                    <div>抢购</div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--超值返结束-->
+
+    <!--新品上市开始-->
+    <div class="newArrival">
+        <div class="currencyTitle themeGray">
+            <div class="themeGrayBg"></div><i>新品上市</i><div class="themeGrayBg"></div>
+        </div>
+        <div class="newArrivalProduct">
+            <div class="productImg">
+                <div class="productImgLeft">
+                    <img src="img/index_newAleft.jpg" alt="">
+                </div>
+                <div class="productImgRight">
+                    <span><img src="img/index_newAright2.jpg" alt=""></span>
+                    <span><img src="img/index_newAright1.jpg" alt=""></span>
+                </div>
+            </div>
+            <div class="productName">
+                <p>【&nbsp<em>正在.命开发中.命开发中.</em>&nbsp】</p>
+                <i>126人已关注</i>
+            </div>
+        </div>
+
+        <div class="newArrivalProduct">
+            <div class="productImg">
+                <div class="productImgLeft">
+                    <img src="img/index_newAleft.jpg" alt="">
+                </div>
+                <div class="productImgRight">
+                    <span><img src="img/index_newAright2.jpg" alt=""></span>
+                    <span><img src="img/index_newAright1.jpg" alt=""></span>
+                </div>
+            </div>
+            <div class="productName">
+                <p>【&nbsp<em>正在.命开发中.命开发中.</em>&nbsp】</p>
+                <i>126人已关注</i>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--新品上市结束-->
+
+    <!--时尚鞋履start-->
+    <div class="fashion">
+        <div class="currencyTitle">
+            <div></div><i>时尚鞋履</i><div></div>
+        </div>
+        <div class="fashionImg">
+            <img src="img/index_fashionImg.png" alt="">
+        </div>
+    </div>
+    <!--时尚鞋履end-->
+
+    <!--家用电器start-->
+    <div class="electric">
+        <div class="currencyTitle themeBlue">
+
+            <div class="themeBlueBg">
+            </div>
+            <i>家用电器</i>
+            <div class="themeBlueBg"></div>
+            <p>更多<i class="iconMore"></i></p>
+        </div>
+        <div class="electricListCurrencyListB">
+                <div class="electricListCurrencyList themeBlue">
+                    <p>全球精品</p>
+                    <p class="themeBlue">嘉嘉旺取暖卓</p>
+                    <div><img src="img/index_dianqi.png" alt=""></div>
+                </div>
+
+                <div class="electricListCurrencyList">
+                    <p>全球精品</p>
+                    <p class="themeBlue">嘉嘉旺取暖卓</p>
+                    <div><img src="img/index_dianqi.png" alt=""></div>
+                </div>
+
+                <div class="electricListCurrencyList">
+                    <p>全球精品</p>
+                    <p class="themeBlue">嘉嘉旺取暖卓</p>
+                    <div><img src="img/index_dianqi.png" alt=""></div>
+                </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--家用电器end-->
+
+    <!--美妆护肤star-->
+    <div class="Beauty">
+        <div class="currencyTitle themeGreen">
+            <div class="themeGreenBg"></div><i>美妆护肤</i><div class="themeGreenBg"></div>
+        </div>
+        <div class="electricListCurrencyListB">
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>精选护肤</p>
+                    <p class="themeGreen">SOD晶维肽</p>
+                    <div>
+                        <img src="img/index_hufu.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>精选护肤</p>
+                    <p class="themeGreen">SOD晶维肽</p>
+                    <div>
+                        <img src="img/index_hufu.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>精选护肤</p>
+                    <p class="themeGreen">SOD晶维肽</p>
+                    <div>
+                        <img src="img/index_hufu.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--美妆护肤end-->
+
+    <!--精选时装start-->
+    <div class="fashion">
+        <div class="currencyTitle">
+            <div></div><i>精选时装</i><div></div>
+        </div>
+        <div class="fashionImg">
+            <img src="img/index_fashion.png" alt="">
+        </div>
+    </div>
+    <!--精选时装end-->
+
+    <!--生活用品start-->
+    <div class="life">
+        <div class="currencyTitle themePurple">
+            <div class="themePurpleBg"></div><i>生活用品</i><div class="themePurpleBg"></div>
+        </div>
+        <div class="electricListCurrencyListB">
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>精致纯棉</p>
+                    <p class="themePurple">芊思雨AD毛巾</p>
+                    <div>
+                        <img src="img/index_maojin.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>精致纯棉</p>
+                    <p class="themePurple">芊思雨AD毛巾</p>
+                    <div>
+                        <img src="img/index_maojin.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>精致纯棉</p>
+                    <p class="themePurple">芊思雨AD毛巾</p>
+                    <div>
+                        <img src="img/index_maojin.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--生活用品end-->
+
+    <!--保健养生start-->
+    <div class="health">
+        <div class="currencyTitle themeOrange">
+            <div class="themeOrangeBg"></div><i>保健养生</i><div class="themeOrangeBg"></div>
+        </div>
+        <div class="electricListCurrencyListB">
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>好货大推介</p>
+                    <p class="themeOrange">喜悟禅茶白茶</p>
+                    <div>
+                        <img src="img/index_cha.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>好货大推介</p>
+                    <p class="themeOrange">喜悟禅茶白茶</p>
+                    <div>
+                        <img src="img/index_cha.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="electricListCurrency">
+                <div class="electricListCurrencyList">
+                    <p>好货大推介</p>
+                    <p class="themeOrange">喜悟禅茶白茶</p>
+                    <div>
+                        <img src="img/index_cha.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--保健养生end-->
+
+    <!--每周新款start-->
+    <div class="weekNew">
+        <div class="currencyTitle">
+            <div></div><i>每周新款</i><div></div>
+        </div>
+        <div class="productCommon">
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+            <div><img src="img/index_common.jpg" alt=""></div>
+            <div>
+                <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                <p>商城价¥<i>128</i></p>
+            </div>
+        </div>
+            <div>
+            <div><img src="img/index_common.jpg" alt=""></div>
+            <div>
+                <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                <p>商城价¥<i>128</i></p>
+            </div>
+        </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--每周新款end-->
+
+    <!--猜你喜欢start-->
+    <div class="weekNew">
+        <div class="currencyTitle">
+            <div></div><i>猜你喜欢</i><div></div>
+        </div>
+
+        <div class="productCommon">
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+            <div>
+                <div><img src="img/index_common.jpg" alt=""></div>
+                <div>
+                    <p>弹力棉儿童连衣裙 蓝粉 夏款</p>
+                    <p>商城价¥<i>128</i></p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--猜你喜欢end-->
+    <div class="more">向上滑动加载更多.....</div>
+</div>
+
+<div class="footer">
+    <ul class="clear">
+        <li>
+            <i><img src="img/shouye.png" alt=""></i>
+            <span>首页</span>
+        </li>
+        <li>
+            <i><img src="img/fenlei-logo.png" alt=""></i>
+            <span>分类</span>
+        </li>
+        <li>
+            <i><img src="img/gouwu-logo.png" alt=""></i>
+            <span>购物车</span>
+        </li>
+        <li>
+            <i><img src="img/wo.png" alt=""></i>
+            <span>我</span>
+        </li>
+    </ul>
+    <a id="backtop"></a>
+    <a id="service"></a>
+</div>
+<script>
+    $('.searchbox .Iright input').click(function(){
+        window.location.href = 'searchPage.html';
+    })
+</script>
+
+</body>
+</html>
+
+

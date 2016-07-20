@@ -1,0 +1,111 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <title>首页-为了商城</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        ! function(a) {
+            function b() {
+                a.rem = f.getBoundingClientRect().width / 16, f.style.fontSize = a.rem + "px"
+            }
+            var c, d = a.navigator.appVersion.match(/iphone/gi) ? a.devicePixelRatio : 1,
+                    e = 1 / d,
+                    f = document.documentElement,
+                    g = document.createElement("meta");
+            if (a.dpr = d, a.addEventListener("resize", function() {
+                        clearTimeout(c), c = setTimeout(b, 300)
+                    }, !1), a.addEventListener("pageshow", function(a) {
+                        a.persisted && (clearTimeout(c), c = setTimeout(b, 300))
+                    }, !1), f.setAttribute("data-dpr", d), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + e + ", maximum-scale=" + e + ", minimum-scale=" + e + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g);
+            else {
+                var h = document.createElement("div");
+                h.appendChild(g), document.write(h.innerHTML)
+            }
+            b()
+        }(window);
+    </script>
+    <style>
+        /*-----------------------搜索----------------------------------------*/
+        .hotSearch{
+            width: 90%;
+            margin: 0 auto;
+            font-size: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        .hotSearch i{
+            display: inline-block;
+            height: .8rem;
+            width: .8rem;
+            background: url(img/hot.png) no-repeat;
+            background-size: 100%;
+        }
+        .hotSearch span{
+            display: inline-block;
+            height:1rem;
+            line-height: 1rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            font-size: 0.65rem;
+            margin: 0 0.2rem;
+            border: 1px solid #646464;
+            border-radius: 0.1rem;
+            color: #646464;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <form action="">
+        <div class="searchbox">
+            <section class="Ileft">
+                <img src="img/logo.png" alt=""/>
+            </section>
+            <section class="Iright">
+                <p>
+                    <img src="img/sousuo.png" alt=""/>
+                </p>
+                <input type="text" value="" />
+                <i class="iconClear"></i>
+            </section>
+        </div>
+    </form>
+</div>
+<div class="main" style="margin-top:2.5rem;">
+    <div id="backtopo"></div>
+    <div class="hotSearch"> 
+        <i></i>
+        热门搜索
+        <p>
+            <span>连衣裙</span>
+            <span>连衣裙连衣裙</span>
+            <span>连衣裙</span>
+            <span>连衣裙</span>
+            <span>连衣裙</span>
+            <span>连衣裙</span>
+            <span>裙</span>
+            <span>连裙</span>
+            <span>连衣裙</span>
+        </p>
+    </div>
+</div>
+<script>
+    if(!$('.Iright input').val()){
+        $('.iconClear').hide();
+    }
+    $('.Iright input')[0].oninput=function(){
+        $('.iconClear').show();
+    };
+    $('.iconClear').click(function () {
+        $('.Iright input').val('');
+        $(this).hide();
+    })
+</script>
+</body>
+</html>
